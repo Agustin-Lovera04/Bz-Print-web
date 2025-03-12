@@ -1,0 +1,10 @@
+.containerAPP {
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+  min-width: 100%;
+}
+
+main {
+  background-color: white;
+}

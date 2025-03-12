@@ -1,0 +1,8 @@
+#root{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Pathway Gothic One', sans-serif;
+}

@@ -1,0 +1,42 @@
+.carrousel {
+    width: 100%; /* El carrusel ocupa todo el ancho del contenedor padre */
+    height: 100%; /* El carrusel ocupa toda la altura del contenedor padre */
+    overflow: hidden; /* Recorta el contenido que se desborda */
+}
+
+
+.imgCarrousel {
+    width: 100%; /* La imagen ocupa todo el ancho */
+    height: 35rem; /* La imagen ocupa toda la altura */
+    object-fit: cover; /* Ajusta la imagen al contenedor */
+}
+
+.btnCarrousel {
+    border-radius: 10px;
+}
+
+.pBtn {
+    margin: 0 !important;
+    color: white;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .textDiapoCarrousel {
+        font-size: 0.8rem !important;
+    }
+
+    .btnCarrousel {
+        height: min-content;
+    }
+
+    .pBtn {
+        font-size: 0.8rem;
+        text-align: center;
+        margin: 0 !important;
+    }
+    .imgCarrousel {
+        height: 15rem;
+    }
+    
+}
