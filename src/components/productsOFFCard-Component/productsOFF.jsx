@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Button } from 'react-bootstrap';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import {CartContext} from '../../context/cartContext.jsx'
 import './productsOFF-style.css'
 
@@ -11,7 +11,22 @@ function formatNumber(num){
 }
 
 export function CardProductOFF({ productsOFF }) {
+  const [ products, setProducts] = useState([])
   const { addProdInCart } = useContext(CartContext);
+
+
+  useEffect(() => { 
+      // Aplicar el descuento del 20% a cada producto
+      let NewProductsOFF = productsOFF.map((p) => {
+        const descuento = p.price * (20 / 100); // Calcular el descuento
+        p.price = p.price - descuento; // Actualizar el precio con el descuento
+        return p; // Devolver el producto actualizado
+      });
+
+      setProducts(NewProductsOFF)
+
+  }, [])
+
 
   const launchAlert = (prod) => {
     let count = 1;
@@ -80,10 +95,11 @@ export function CardProductOFF({ productsOFF }) {
     });
   };
 
-  return (
 
+
+  return (
     <Row xs={1} sm={3} md={5} className="g-4">
-      {productsOFF.map((prod) => (
+      {products.map((prod) => (
         <Col  key={prod.code} className="d-flex justify-content-center align-items-center">
           <Card className="cardProduct CardProductOFF"color="light" >
             <Card.Img variant="top" src={prod.URLIMAGE} className="imgCardProduct" />

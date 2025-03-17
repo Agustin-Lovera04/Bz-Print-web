@@ -43,7 +43,7 @@ export const ProductsComponent = () => {
     getProducts();
   }, []);
 
-  useEffect(()=>{ 
+/*   useEffect(()=>{ 
     const modal = () => {
       Swal.fire({
         title: "8M DIA DE LA MUJER",
@@ -57,7 +57,7 @@ export const ProductsComponent = () => {
     }
 
     modal()
-  },[])
+  },[]) */
 
   useEffect(() => {
     try {
@@ -67,14 +67,7 @@ export const ProductsComponent = () => {
       let codesFind = ["121250", "154950", "237450", "237380", "121230", "61820", "116460", "35360", "36172", "155760", "29441", "51950", "116140", "121360"];
 
       let newProductsOFF = products.filter((p) => codesFind.includes(p.code));
-      
-      // Aplicar el descuento del 20% a cada producto
-      newProductsOFF = newProductsOFF.map((p) => {
-        const descuento = p.price * (20 / 100); // Calcular el descuento
-        p.price = p.price - descuento; // Actualizar el precio con el descuento
-        return p; // Devolver el producto actualizado
-      });
-      
+
       setProductsOFF(newProductsOFF);
       
       let filteredProducts = products;
@@ -132,7 +125,7 @@ export const ProductsComponent = () => {
 
               {productsOFF.length > 0 ? (
                 <div>
-                  <h1 className="text-center fw-bold promo-banner p-md-5 p-3"> PROMOS DIA DE LA MUJER  <br /> 20% OFF</h1>
+                  <h1 className="text-center fw-bold promo-banner p-md-5 p-3"> PROMOS SEMANALES  <br /> 20% OFF</h1>
                     <ProductsOFFList productsOFF={productsOFF} />
                   <h1 className="text-center fw-bold promo-banner p-4"> Increibles promos semanales, no te las Pierdas!</h1>
                 </div>
