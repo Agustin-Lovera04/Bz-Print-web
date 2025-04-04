@@ -81,9 +81,9 @@ export function CardProduct({ products }) {
   };
 
   return (
-    <Row xs={1} sm={2} md={4} className="g-4">
+    <Row className="g-2">
       {products.map((prod) => (
-        <Col  key={prod.code} className="d-flex justify-content-center align-items-center">
+        <Col md={3} key={prod.code} className="d-flex justify-content-center align-items-center">
           <Card className="cardProduct" bg="secondary" color="light" >
             <Card.Img variant="top" src={prod.URLIMAGE} className="imgCardProduct" />
             <Card.Body>
@@ -92,9 +92,13 @@ export function CardProduct({ products }) {
                <span className='fw-bold'> CODE: {prod.code} <br />
                 PRECIO:$ <span className='text-warning'>{formatNumber(prod.price)}.-</span> <span className='text-warning bg-danger fw-bold'>Precio xUnidad</span> </span>
               </Card.Text>
-              <Button variant="primary" className="mb-2" onClick={() => launchAlert(prod)}>
-                Ver Detalle
-              </Button>
+              {prod.stock === 0 ? (
+                <div className="alert alert-danger"> SIN STOCK </div>
+              ) : (
+                <Button className="mb-2 btn-primary" onClick={() => launchAlert(prod)}>
+                  Ver detalle
+                </Button>
+              )}
             </Card.Body>
           </Card>
         </Col>

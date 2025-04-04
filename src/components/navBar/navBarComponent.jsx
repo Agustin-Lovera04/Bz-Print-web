@@ -20,7 +20,7 @@ export function NavBar() {
     const valueSearch = searchInputRef.current.value.trim();
 
     if (valueSearch.length > 0) {
-      navigate(`/${valueSearch}`);
+      navigate(`/?title=${valueSearch}`);
     } else {
       searchInputRef.current.value = "";
       navigate("/");
@@ -35,6 +35,10 @@ export function NavBar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
+          <div className="d-flex flex-column container-fluid">
+
+          <div className="d-flex flex-row ">
+
             <div className="d-flex flex-column mx-auto my-2 my-lg-0">
             <p className="warningSearch alert alert-warning p-1 m-1">Atencion! Intentá buscar con 3 letras coincidentes al menos, del objeto deseado. <br /> Ejem: Cartuchera = "CAN", Mochila = "MOC"</p>
           <Form className="d-flex mx-auto my-2 my-lg-0" onSubmit={handleSearch}>
@@ -55,13 +59,16 @@ export function NavBar() {
               as={Link}
               to="/cart"
               className="linkCounter d-flex align-items-center"
-            >
+              >
               <div className="cart-container">
                 <img src={cartIMG} alt="Carrito" className="cartIMG" />
                 <p className="counterP text-end">{counterCart()}</p>
               </div>
             </Nav.Link>
           </Nav>
+              </div>
+
+              </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
