@@ -1,42 +1,98 @@
-.carrousel {
-    width: 100%; /* El carrusel ocupa todo el ancho del contenedor padre */
-    height: 100%; /* El carrusel ocupa toda la altura del contenedor padre */
-    overflow: hidden; /* Recorta el contenido que se desborda */
-}
+/* Limitar el ancho del carrusel interno y centrar su contenido */
+.carousel-inner {
+    max-width: 80%;
+    margin: 0 auto;
+  }
 
-
-.imgCarrousel {
-    width: 100%; /* La imagen ocupa todo el ancho */
-    height: 35rem; /* La imagen ocupa toda la altura */
-    object-fit: cover; /* Ajusta la imagen al contenedor */
-}
-
-.btnCarrousel {
-    border-radius: 10px;
-}
-
-.pBtn {
-    margin: 0 !important;
-    color: white;
-    font-weight: bold;
-}
-
-@media (max-width: 768px) {
-    .textDiapoCarrousel {
-        font-size: 0.8rem !important;
-    }
-
-    .btnCarrousel {
-        height: min-content;
-    }
-
-    .pBtn {
-        font-size: 0.8rem;
-        text-align: center;
-        margin: 0 !important;
-    }
-    .imgCarrousel {
-        height: 15rem;
-    }
-    
-}
+  /* Ajustar la distribución de las columnas dentro de cada slide */
+  .carousel-item .row {
+    display: flex; /* Habilitar flexbox para la fila */
+    justify-content: center; /* Centrar las columnas horizontalmente */
+  }
+  .product-card-sm {
+    border: 1px solid #ddd;
+    border-radius: 0.2em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    background-color: #fff; /* Color de fondo por defecto */
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  }
+  
+  .product-card-sm:hover {
+    transform: scale(1.03); /* Un poco más notorio */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /* Sombra más marcada pero suave */
+    background-color: #f0f0f0; /* Leve cambio de fondo */
+  }
+  
+  
+  .img-wrapper {
+    width: 100%;
+    max-height: 4em; /* Aún más pequeño */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1em; /* Mínimo padding */
+  }
+  
+  .product-img-sm {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  
+  .product-body-sm {
+    padding: 0.1em; /* Mínimo padding */
+  }
+  
+  .product-title-sm {
+    font-size: 0.6em; /* Aún más pequeño */
+    margin-bottom: 0.05em; /* Mínimo margen */
+    overflow: visible;
+    white-space: normal;
+    text-align: center;
+    min-height: 1.5em; /* Ajustado para el tamaño de fuente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-price {
+    font-size: 0.6em; /* Aún más pequeño */
+    text-align: center;
+    margin-bottom: 0.05em; /* Mínimo margen */
+  }
+  
+  .product-add-btn {
+    font-size: 0.55em; /* Aún más pequeño */
+    padding: 0.1em 0.2em; /* Mínimo padding */
+    align-self: center;
+    margin-top: 0.1em; /* Mínimo margen */
+  }
+  
+  
+  /* Vista previa del combo */
+  .combo-preview {
+    margin-top: 1em; /* Reducido */
+    padding: 0.5em; /* Reducido */
+    border: 1px solid #ccc;
+    border-radius: 0.2em; /* Reducido */
+    background-color: #f9f9f9;
+  }
+  
+  .combo-preview h4 {
+    font-size: 0.8em; /* Reducido */
+    margin-bottom: 0.3em; /* Reducido */
+  }
+  
+  .combo-preview .list-group-item {
+    font-size: 0.6em; /* Reducido */
+    padding: 0.2em 0.4em; /* Reducido */
+  }
+  
+  .combo-preview .btn-success {
+    font-size: 0.6em; /* Reducido */
+    padding: 0.3em 0.5em; /* Reducido */
+    margin-top: 0.3em; /* Reducido */
+  }

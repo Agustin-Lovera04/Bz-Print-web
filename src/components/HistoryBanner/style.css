@@ -1,0 +1,62 @@
+.history-banner-container {
+    background-color: #f8f0e3;
+    padding: 2em; /* Ahora en em */
+    border-radius: 0.75rem; /* Usando rem para consistencia con la fuente raíz */
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* Rem para la sombra */
+    margin-bottom: 2rem;
+    max-width: 80%; /* Porcentaje para la anchura */
+    text-align: center;
+  }
+  
+  .history-banner-title {
+    color: #a0522d;
+    font-size: 1.3rem; /* Rem para el tamaño de la fuente */
+    margin-bottom: 0.5rem; /* Rem para el margen */
+    font-weight: bold;
+  }
+
+  .iconHistory{
+    font-size: 2.5rem !important;
+  }
+  
+  .history-banner-text {
+    color: #696969;
+    margin-bottom: 1rem; /* Rem para el margen */
+    font-size: 1rem; /* Rem para el tamaño de la fuente */
+  }
+  
+  .history-banner-link {
+    display: inline-block;
+    padding: 0.75em 1.5em; /* Em para el padding, relativo al tamaño de la fuente del elemento */
+    background-color: #d2691e;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem; /* Rem para el radio del borde */
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-size: 1rem; /* Rem para el tamaño de la fuente del enlace */
+  }
+  
+  .history-banner-link:hover {
+    background-color: #b85c14;
+  }
+  
+  @media (max-width: 768px) {
+    .history-banner-container {
+      max-width: 95%; /* Ajuste en porcentaje para pantallas pequeñas */
+      padding: 1.5em; /* Ajuste en em */
+    }
+  
+    .history-banner-title {
+      font-size: 1.2rem; /* Reducción en rem */
+    }
+  
+    .history-banner-text {
+      font-size: 0.9rem; /* Reducción en rem */
+    }
+  
+    .history-banner-link {
+      padding: 0.6em 1.2em; /* Ajuste en em */
+      font-size: 0.9rem; /* Reducción en rem */
+    }
+  }

@@ -54,7 +54,6 @@
 
 
 
-
 @media (max-width: 992px){
     .alerts-Container{
         width:80%;
@@ -86,5 +85,96 @@
     .btnOption {
         width: 1.8rem; /* Ancho del botón flexible */
         height: 1.8rem; /* Alto del botón flexible */
+    }
+}
+/* NUEVO: contenedor general de productos renderizados como cards */
+.cards-cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+/* NUEVO: card para cada producto */
+.card-product-cart {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap;
+}
+
+/* NUEVO: imagen del producto (si existe) */
+.img-cart-product {
+    max-width: 150px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+/* NUEVO: contenido del producto */
+.info-cart-product {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* NUEVO: título del producto */
+.title-cart-product {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+/* NUEVO: código del producto */
+.code-cart-product {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+/* NUEVO: subtotal */
+.subtotal-cart-product {
+    font-weight: bold;
+    margin-top: 0.25rem;
+}
+
+/* NUEVO: contenedor de botones */
+.cart-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* NUEVO: grupo de botones (+ - basura) */
+.btns-cart {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .card-product-cart {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .img-cart-product {
+        max-width: 50%;
+    }
+
+    .btns-cart {
+        justify-content: center;
+    }
+
+    .info-cart-product {
+        width: 100%;
     }
 }

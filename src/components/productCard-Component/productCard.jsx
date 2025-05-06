@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap';
 import { useState, useContext } from 'react';
 import {CartContext} from '../../context/cartContext.jsx'
 import './style-productCard.css'
+import { useNavigate } from 'react-router-dom';
 
 function formatNumber(num){
   return num.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 3 })
@@ -12,8 +13,9 @@ function formatNumber(num){
 
 export function CardProduct({ products }) {
   const { addProdInCart } = useContext(CartContext);
+  const navigate  = useNavigate()
 
-  const launchAlert = (prod) => {
+ /*  const launchAlert = (prod) => {
     let count = 1;
 
     Swal.fire({
@@ -66,7 +68,13 @@ export function CardProduct({ products }) {
             });
             Toast.fire({
               icon: 'success',
-              html: '<p class="fw-bold">PRODUCTO AGREGADO AL CARRITO</p>',
+              html: `<p class="fw-bold">PRODUCTO AGREGADO AL CARRITO</p>
+                    <button class="btn btn-warning" id="btn-navigateCart">Ir a carrito</button>`,
+              didOpen:() => {
+                document.getElementById('btn-navigateCart').addEventListener("click", (e)=>{
+                  navigate("/cart")
+                })
+              }
             });
           } else {
             Swal.fire({
@@ -78,24 +86,24 @@ export function CardProduct({ products }) {
         });
       },
     });
-  };
+  }; */
 
   return (
     <Row className="g-2">
       {products.map((prod) => (
         <Col md={3} key={prod.code} className="d-flex justify-content-center align-items-center">
-          <Card className="cardProduct" bg="secondary" color="light" >
+          <Card className="cardProduct"  >
             <Card.Img variant="top" src={prod.URLIMAGE} className="imgCardProduct" />
             <Card.Body>
-              <Card.Title className="titleCard text-light  fw-bold">{prod.title}</Card.Title>
-              <Card.Text className="textCard text-light">
+              <Card.Title className="titleCard fw-bold">{prod.title}</Card.Title>
+              <Card.Text className="textCard">
                <span className='fw-bold'> CODE: {prod.code} <br />
-                PRECIO:$ <span className='text-warning'>{formatNumber(prod.price)}.-</span> <span className='text-warning bg-danger fw-bold'>Precio xUnidad</span> </span>
+                PRECIO:$ <span className='text-warning'>{prod.price && prod.price !== undefined && formatNumber(prod.price)}.-</span> <span className='text-warning bg-danger fw-bold'>Precio xUnidad</span> </span>
               </Card.Text>
               {prod.stock === 0 ? (
                 <div className="alert alert-danger"> SIN STOCK </div>
               ) : (
-                <Button className="mb-2 btn-primary" onClick={() => launchAlert(prod)}>
+                <Button className="mb-2 btn-primary" onClick={() => navigate(`/product/${prod.code}`)}>
                   Ver detalle
                 </Button>
               )}

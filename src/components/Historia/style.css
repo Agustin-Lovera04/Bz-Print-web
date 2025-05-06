@@ -1,0 +1,268 @@
+.historia-container {
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
+  color: #333;
+  background-color: #f9f9f9; /* Un gris muy claro de fondo */
+}
+
+/* Efecto Parallax para el hero */
+.parallax-section {
+  height: 65vh; /* Ligeramente más pequeño */
+  background: linear-gradient(135deg, #5c6bc0 0%, #3949ab 100%); /* Tonos de azul más modernos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sutil sombra */
+}
+
+.parallax-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/public/images/BZPrint-Logo.png') center/contain no-repeat;
+  opacity: 0.08; /* Aún más sutil */
+  z-index: 0;
+  transform: translateZ(-1px) scale(1.15); /* Ligeramente menos zoom */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  transform: translateZ(1px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 8%; /* Un poco más de padding lateral */
+}
+
+.hero-content h1 {
+  font-size: 3.2rem; /* Ligeramente más grande */
+  margin-bottom: 0.6rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+  font-family: 'Montserrat', sans-serif; /* Otra fuente moderna */
+  font-weight: 700; /* Más negrita */
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.hero-content p {
+  font-size: 1.3rem; /* Ligeramente más grande */
+  opacity: 0.85;
+  font-family: 'Open Sans', sans-serif; /* Fuente legible */
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.scroll-indicator {
+  font-size: 2.2rem; /* Ligeramente más pequeño */
+  animation: bounce 1.6s infinite alternate;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(0.4rem); } /* Menos rebote */
+}
+
+/* Contenedor del contenido */
+.historia-content {
+  max-width: 1100px; /* Un poco más estrecho */
+  margin: 3vh auto 0; /* Más margen superior */
+  position: relative;
+  padding: 0 8%; /* Igual padding lateral que el hero */
+}
+
+/* Tarjetas de timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh; /* Más espacio entre tarjetas */
+  position: relative;
+  z-index: 2;
+  padding: 2vh 0; /* Algo de padding vertical */
+}
+
+.historia-card {
+  border-radius: 1rem; /* Bordes más redondeados */
+  padding: 2rem; /* Más padding interno */
+  color: #fff;
+  box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.18); /* Sombra más pronunciada */
+  opacity: 0;
+  transform: translateY(2rem); /* Menos traslación inicial */
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); /* Animación más suave */
+  position: relative;
+  overflow: hidden;
+  background-color: var(--card-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.historia-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.08); /* Overlay aún más ligero */
+  z-index: 0;
+}
+
+.card-text {
+  flex: 1;
+  padding-right: 2rem; /* Más espacio entre texto e imagen */
+}
+
+.historia-card h2 {
+  font-size: 1.7rem; /* Ligeramente más grande */
+  margin-bottom: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600; /* Semibold */
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.historia-card p {
+  font-size: 1.1rem; /* Ligeramente más grande */
+  margin-bottom: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #eee; /* Un tono de blanco más suave */
+  line-height: 1.7;
+}
+
+.card-image-container {
+  width: 40%; /* Un poco más de espacio para la imagen */
+  max-width: 25%;
+  height: auto;
+  border-radius: 0.5rem; /* Bordes más redondeados para la imagen */
+  overflow: hidden;
+  opacity: 0.8; /* Opacidad inicial ligeramente mayor */
+  transition: opacity 0.25s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sutil sombra en la imagen */
+}
+
+.historia-card:hover .card-image-container {
+  opacity: 1;
+}
+
+.card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out; /* Pequeña animación al hacer hover */
+}
+
+.historia-card:hover .card-image-container img {
+  transform: scale(1.05);
+}
+
+/* Cita final */
+.final-quote {
+  margin-top: 6vh; /* Más margen superior */
+  text-align: center;
+  padding: 4vh 8%; /* Más padding */
+  background-color: #f1eeee; /* Fondo blanco */
+  border-radius: 1rem; /* Bordes más redondeados */
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12); /* Sombra sutil */
+  border: 1px solid #e7e7e7; /* Borde ligero */
+}
+
+.final-quote blockquote {
+  font-size: 1.3rem; /* Más grande */
+  color: #444;
+  font-style: italic;
+  margin-bottom: 1rem; /* Más margen */
+  line-height: 1.5;
+  font-family: 'Merriweather', serif; /* Fuente serif elegante */
+}
+
+.final-quote footer {
+  font-size: 1rem; /* Ligeramente más grande */
+  color: #777;
+  font-weight: 500;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0.03em;
+}
+
+.arrowIcon {
+  font-size: 2rem;
+  color: #444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .parallax-section {
+    height: 55vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .historia-content {
+    margin-top: 2vh;
+    padding: 0 5%;
+  }
+
+  .timeline {
+    gap: 3vh;
+  }
+
+  .historia-card {
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items:center 
+  }
+
+
+  .card-text {
+    padding-right: 0;
+    margin-bottom: 1.2rem;
+  }
+
+  .historia-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .historia-card p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .card-image-container {
+    width: 60%; /* Más ancho en móviles */
+    max-width: 80%;
+    margin-left: 0;
+  }
+
+  .final-quote blockquote {
+    font-size: 1.1rem;
+  }
+
+  .final-quote footer {
+    font-size: 0.9rem;
+  }
+
+  .arrowIcon {
+    font-size: 1.8rem;
+  }
+}

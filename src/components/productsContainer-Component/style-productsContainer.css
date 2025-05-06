@@ -21,6 +21,114 @@
 }
 
 
+.combo-section {
+  background-color: #f0f4c3; /* Amarillo muy suave y acogedor */
+  padding: 2rem 0;
+  border-bottom: 2px solid #aed581; /* Verde suave y agradable */
+  border-top: 2px solid #aed581; /* Verde suave y agradable */
+}
+
+.section-title {
+  font-family: 'Open Sans', sans-serif; /* Fuente amigable y legible */
+  font-size: clamp(2.2rem, 4vw, 2.6rem); /* Tamaño adaptable */
+  color: #5e35b1; /* Morado suave y moderno */
+  margin-bottom: 1rem !important;
+  text-shadow: 1px 1px 1px #d1c4e9; /* Sombra suave */
+  letter-spacing: 0.05em;
+}
+
+.benefit-text {
+  font-family: 'Nunito', sans-serif; /* Otra fuente moderna y amigable */
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem); /* Tamaño adaptable */
+  color: #00897b; /* Verde azulado atractivo */
+  font-weight: bold;
+  margin-bottom: 1.8rem !important;
+  text-shadow: 1px 1px 1px #b2dfdb; /* Sombra suave */
+}
+
+.carrouselBootstrapContainer {
+  background-color: #e1bee7; /* Lila muy suave */
+  border-radius: 0.75rem;
+  box-shadow: 0 0.3rem 0.8rem #ce93d8; /* Sombra suave en tono similar */
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 80rem;
+  border: 1px solid #ba68c8; /* Borde lila */
+}
+.combo-section {
+    background-color: #eceff1; /* Gris claro */
+    padding: 2rem 0;
+    border-bottom: 3px solid #90caf9; /* Azul suave */
+    border-top: 3px solid #90caf9; /* Azul suave */
+  }
+  
+  .section-title {
+    font-family: 'Poppins', sans-serif; /* Fuente amigable y moderna */
+    font-size: clamp(2.3rem, 4.5vw, 2.7rem); /* Tamaño adaptable */
+    color: #3f51b5; /* Azul más intenso */
+    margin-bottom: 1rem !important;
+    text-shadow: 1px 1px 1px #c5cae9; /* Sombra suave */
+    letter-spacing: 0.03em;
+  }
+  
+  .benefit-text {
+    font-family: 'Roboto', sans-serif; /* Fuente legible y amigable */
+    font-size: clamp(1.4rem, 2.8vw, 1.8rem); /* Tamaño adaptable */
+    color: #2e7d32; /* Verde más oscuro y positivo */
+    font-weight: 500;
+    margin-bottom: 1.8rem !important;
+    text-shadow: 1px 1px 1px #a5d6a7; /* Sombra suave */
+  }
+  
+  .carrouselBootstrapContainer {
+    background-color: #e0f7fa; /* Celeste muy claro y amigable */
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem #b3e5fc; /* Sombra suave en tono celeste */
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+    max-width: 85rem;
+    border: 2px solid #81d4fa; /* Borde celeste */
+  }
+
+  /* Título para Productos Destacados */
+.destacados-title {
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    font-size: clamp(2rem, 5vw, 2.7rem);
+    color: #3f51b5; /* Azul moderno */
+    text-align: center;
+    margin-bottom: 1.2rem;
+    text-shadow: 1px 1px 2px #c5cae9;
+    letter-spacing: 0.03em;
+    border-bottom: 3px solid #90caf9; /* Línea sutil */
+    padding-bottom: 0.5rem;
+    background: linear-gradient(90deg, #e3f2fd 0%, #fce4ec 100%);
+    border-radius: 8px 8px 0 0;
+  }
+  
+  /* Título para Catálogo General */
+  .catalogo-title {
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.3rem);
+    color: #00897b; /* Verde azulado */
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px #b2dfdb;
+    letter-spacing: 0.02em;
+    border-bottom: 2px solid #a5d6a7;
+    padding-bottom: 0.4rem;
+    background: linear-gradient(90deg, #e0f7fa 0%, #f1f8e9 100%);
+    border-radius: 8px 8px 0 0;
+  }
+  .prodsDestacados-Wrapper {
+    background: linear-gradient(120deg, #e3f0ff 0%, #fffde7 100%);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(52, 152, 219, 0.10);
+    padding: 2rem 1rem;
+    margin-bottom: 2.5rem;
+    border: 2px solid #64b5f6;
+  }
+  
+
 .pagination .page-link {
     display: block;
     padding: 10px 15px; 

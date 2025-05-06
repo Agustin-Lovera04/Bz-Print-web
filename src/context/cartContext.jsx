@@ -21,8 +21,11 @@ export const CartComponentContext = ({ children }) => {
     return cart.findIndex((prod) => prod.code === code);
   };
 
-  const addProdInCart = (prod, quantity) => {
+  const addProdInCart = (prod, quantity, details) => {
     const { code } = prod;
+    if(!details){
+      details = '-'
+    }
 
     try {
       const newCart = [...cart];
@@ -32,6 +35,7 @@ export const CartComponentContext = ({ children }) => {
         newCart[existProdIndex].quantity += quantity;
       } else {
         prod.quantity = quantity;
+        prod.detail = details
         newCart.push(prod);
       }
 

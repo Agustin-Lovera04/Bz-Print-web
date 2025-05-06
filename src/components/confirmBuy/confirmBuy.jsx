@@ -19,19 +19,23 @@ export const ConfirmBuy = () => {
 
         const phoneNumber = "5493424068755";
         const message = `
-        *Hola Quiero estos productos, como seguimos?*
-        *Nombre:* ${dataBuy.user.name}
-        *Dirección:* ${dataBuy.user.adress}
-        *Especificaciones:* ${dataBuy.user.specification}
-     
-        *Productos:*
-        ${cart.map((p) => `-*${p.title ? p.title : " - "}* *${p.code}:* *${p.quantity}* unidades\n`).join('')}
-     
-        *Envío y Total:*
-        *Envío:* $${send}.-
-        *Precio estimativo total:* $${totalPriceCart.toFixed(2)}.-
-     `.trim();
-
+        *🛒 Hola! Quiero estos productos, ¿cómo seguimos?*
+        
+        📌 *Nombre:* ${dataBuy.user.name}
+        📍 *Dirección:* ${dataBuy.user.adress}
+        📝 *Especificaciones:* ${dataBuy.user.specification}
+        
+        🧾 *Productos:*
+        ${cart.map((p) => `- *${p.title || "-"}*
+            Código: *${p.code}*
+          ↪️ *Especificaciones:* ${p.detail}
+          📦 *Cantidad:* ${p.quantity} unidades
+          ───────────────────────────────\n`).join('')}
+        
+        💰 *Envío y Total:*
+        🚚 *Envío:* $${send}.-
+        💵 *Precio estimativo total:* $${totalPriceCart.toFixed(2)}.-
+        `.trim();
         const messageEncoded = encodeURIComponent(message);
         const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${messageEncoded}`;
 

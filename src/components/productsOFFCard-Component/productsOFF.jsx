@@ -5,19 +5,20 @@ import { Button } from 'react-bootstrap';
 import { useState, useContext, useEffect } from 'react';
 import {CartContext} from '../../context/cartContext.jsx'
 import './productsOFF-style.css'
+import { useNavigate } from 'react-router-dom';
 
 function formatNumber(num){
   return num.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 3 })
 }
 
 export function CardProductOFF({ productsOFF }) {
-console.log(productsOFF)
 
+  const navigate = useNavigate()
   const [ products, setProducts] = useState([])
   const { addProdInCart } = useContext(CartContext);
 
 
-  useEffect(() => { 
+/*   useEffect(() => { 
     // Aplicar el descuento del 20% a cada producto
     let NewProductsOFF = productsOFF.map((p) => {
       if (p.code === "237380" || p.code === "121230" || p.code === "35360" || p.code === "36172") {
@@ -30,10 +31,21 @@ console.log(productsOFF)
   
     setProducts(NewProductsOFF);
   
+  }, []); */
+  useEffect(() => { 
+    // Aplicar el descuento del 20% a cada producto
+    let NewProductsOFF = productsOFF.map((p) => {
+        const descuento = p.price * (10 / 100); // Calcular el descuento
+        p.price = p.price - descuento; // Actualizar el precio con el descuento
+        return p; // Devolver el producto actualizado
+    });
+  
+    setProducts(NewProductsOFF);
+  
   }, []);
   
 
-
+/* 
   const launchAlert = (prod) => {
     let count = 1;
 
@@ -87,7 +99,13 @@ console.log(productsOFF)
             });
             Toast.fire({
               icon: 'success',
-              html: '<p class="fw-bold">PRODUCTO AGREGADO AL CARRITO</p>',
+              html: `<p class="fw-bold">PRODUCTO AGREGADO AL CARRITO</p>
+                    <button class="btn btn-warning" id="btn-navigateCart">Ir a carrito</button>`,
+              didOpen:() => {
+                document.getElementById('btn-navigateCart').addEventListener("click", (e)=>{
+                  navigate("/cart")
+                })
+              }
             });
           } else {
             Swal.fire({
@@ -99,7 +117,7 @@ console.log(productsOFF)
         });
       },
     });
-  };
+  }; */
 
 
 
@@ -113,11 +131,15 @@ console.log(productsOFF)
               <Card.Title className="titleCard text-dark  fw-bold">{prod.title}</Card.Title>
               <Card.Text className="textCard text-dark">
                <span className='fw-bold'> CODE: {prod.code} <br />
-                PRECIO:$ <span className='text-success'>{formatNumber(prod.price)}.-</span> <span className='text-warning bg-danger fw-bold'>Precio xUnidad</span> </span>
+                PRECIO:$ <span className='text-success'>{prod.price && prod.price !== undefined && formatNumber(prod.price)}.-</span> <span className='text-warning bg-danger fw-bold'>Precio xUnidad</span> </span>
               </Card.Text>
-              <Button variant="primary" className="mb-2" onClick={() => launchAlert(prod)}>
-                Ver Detalle
-              </Button>
+              {prod.stock ===  0 ? (
+                            <div className="alert alert-danger"> SIN STOCK </div>
+                          ) : (
+                            <Button className="mb-2 btn-primary" onClick={() => navigate(`/product/${prod.code}`)}>
+                            Ver detalle
+                          </Button>
+                          )}
             </Card.Body>
           </Card>
         </Col>

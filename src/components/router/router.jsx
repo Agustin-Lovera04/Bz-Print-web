@@ -10,6 +10,9 @@ import {
 } from "react-router-dom";
 import { CartComponent } from '../cartContainer-Component/cartContainer.jsx';
 import { ConfirmBuy } from '../confirmBuy/confirmBuy.jsx';
+import ProductDetail from '../ProductDetailComponent/ProductDetailComponent.jsx';
+import Historia from '../Historia/Historia.jsx';
+
 
 export const Router = () => {
   return (
@@ -22,9 +25,11 @@ export const Router = () => {
           <main>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/product/:code" element={< ProductDetail/>} />
               <Route path="/:category" element={<Home />} />
               <Route path="/cart" element={<CartComponent />} />
               <Route path="/confirmBuy" element={<ConfirmBuy />} />
+              <Route path='/historia' element={<Historia/>} />
             </Routes>
           </main>
           <footer>
